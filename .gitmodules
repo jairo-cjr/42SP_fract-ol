@@ -1,0 +1,3 @@
+[submodule "libft"]
+	path = libft
+	url = git@github.com:jcaetano-c/42SP_LIbft_Expanded.git

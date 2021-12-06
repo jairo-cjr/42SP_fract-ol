@@ -1,0 +1,13 @@
+{
+	"files.associations": {
+		"*.md": "markdown",
+		"array": "c",
+		"deque": "c",
+		"string": "c",
+		"unordered_map": "c",
+		"vector": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"mlx.h": "c"
+	}
+}
