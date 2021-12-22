@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 05:40:35 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/22 07:12:57 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:16:59 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,13 @@
 *	index = size_l * pos_y + pos_x * (bpp / 8);
 */
 
-int	ft_create_image(t_data *data)
+void	ft_create_image(t_data *data)
 {
-	data->img->img_ptr = mlx_new_image(data->mlx_ptr, W, H);
-	// if (data->img->img_ptr == NULL)
-	// 	mlx_destroy_image(data->mlx_ptr, data->img->img_ptr);
-	data->img->addr = mlx_get_data_addr(data->img->img_ptr, &data->img->bpp,
-			&data->img->size_l, &data->img->endian);
-	if (!data->img->addr)
-		mlx_destroy_image(data->mlx_ptr, data->img->img_ptr);
-	return (0);
+	data->img.img_ptr = mlx_new_image(data->mlx_ptr, W, H);
+	if (data->img.img_ptr == NULL)
+		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
+	data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bpp,
+			&data->img.size_l, &data->img.endian);
+	if (!data->img.addr)
+		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
 }

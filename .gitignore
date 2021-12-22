@@ -1,0 +1,8 @@
+*tests
+**.o
+**.a
+**.out
+*.vscode
+**fractol
+utils*
+example*

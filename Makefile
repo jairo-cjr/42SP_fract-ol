@@ -6,7 +6,7 @@
 #    By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 14:32:11 by jcaetano          #+#    #+#              #
-#    Updated: 2021/12/22 06:43:24 by jcaetano         ###   ########.fr        #
+#    Updated: 2021/12/22 13:13:44 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,10 @@ man:			all
 run:			all
 				reset
 				./fractol
+
+val:			all
+				reset
+				valgrind ./fractol --leak-check=full
 
 norm:
 	norminette $(SRC) $(LIBFT_DIR) $(INC_DIR)

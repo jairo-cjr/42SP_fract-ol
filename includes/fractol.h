@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:06:21 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/22 06:50:24 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:48:06 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_data
 	void		*mlx_ptr;
 	void		*win_ptr;
 	char		*title;
-	t_img		*img;
+	t_img		img;
 }				t_data;
 
 typedef struct s_rectangle
@@ -80,11 +80,11 @@ typedef struct s_rectangle
 int		ft_encode_rgb(int r, int g, int b);
 int		ft_handle_keypress(int keysym, t_data *data);
 int		ft_render(t_data *data);
-int		ft_render_rectangle(t_img *img, t_rectangle rect);
-int		ft_render_background(t_img *img, int color);
-int		ft_create_window(t_data *data);
-int		ft_create_image(t_data *data);
+void	ft_render_rectangle(t_img *img, t_rectangle rect);
+void	ft_render_background(t_img *img, int color);
+void	ft_create_window(t_data *data);
+void	ft_create_image(t_data *data);
 void	ft_img_pixel_put(t_img *img, int x, int y, int color);
-int		ft_init_mlx(t_data *data);
+void	ft_init_mlx(t_data *data);
 
 #endif

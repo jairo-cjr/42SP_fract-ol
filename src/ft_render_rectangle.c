@@ -6,13 +6,13 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 03:26:57 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/22 06:52:14 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:40:54 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_render_rectangle(t_img *img, t_rectangle rect)
+void	ft_render_rectangle(t_img *img, t_rectangle rect)
 {
 	int	x;
 	int	y;
@@ -28,5 +28,4 @@ int	ft_render_rectangle(t_img *img, t_rectangle rect)
 		}
 		++y;
 	}
-	return (0);
 }

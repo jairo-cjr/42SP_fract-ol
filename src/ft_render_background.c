@@ -6,13 +6,13 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 03:26:57 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/22 06:51:57 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:53:55 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_render_background(t_img *img, int color)
+void	ft_render_background(t_img *img, int color)
 {
 	int	x;
 	int	y;
@@ -28,5 +28,4 @@ int	ft_render_background(t_img *img, int color)
 		}
 		++y;
 	}
-	return (0);
 }
