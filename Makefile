@@ -3,55 +3,97 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jcaetano <jcaetanostudent.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
-#    Updated: 2021/11/19 08:03:45 by jcaetano         ###   ########.fr        #
+#    Created: 2021/12/06 14:32:11 by jcaetano          #+#    #+#              #
+#    Updated: 2021/12/22 06:43:24 by jcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractol
+NAME			=	fractol
 
-CC = gcc
-FLAGS = -Wall -Werror -Wextra
-LFLAGS = -L.. -lmlx -L/mlx_linux -lXext -lX11 -lm -lbsd
+SRC				=	./src
+SRCS			=	main.c \
+					ft_create_image.c \
+					ft_create_window.c \
+					ft_encode_rgb.c \
+					ft_handle_keypress.c \
+					ft_img_pixel_put.c \
+					ft_init_mlx.c \
+					ft_render_background.c \
+					ft_render_rectangle.c \
+					ft_render.c
 
-LIBFT_DIRECTORY = ./libft/
-LIBFT = $(LIBFT_DIRECTORY)libft.a
-LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
+OBJ				=	./bin
+OBJS			=	$(addprefix $(OBJ)/,$(SRCS:.c=.o))
 
-SRC = main.c
-OBJ = $(SRC:%.c=%.o)
+INC_DIR			=	./includes
 
-# COLORS
+SYS_CAL			=	-l Xext -l X11 -l m -l bsd
 
-GREEN = \033[0;32m
-RED = \033[0;31m
-RESET = \033[0m
+MLX_DIR			=	./mlx_linux
 
-all: $(NAME)
+MLX_LIB			=	mlx
 
-$(NAME):
-	gcc main.c $(LFLAGS) -o $(NAME)
+MLX_CAL			=	-L $(MLX_DIR) -l $(MLX_LIB)
 
-# $(NAME): $(OBJ)
-# 	$(CC) -o $(NAME) $(OBJ) $(FLAGS) $(LFLAGS)
+LIBFT_DIR		=	./libft
+
+LIBFT_LIB			=	ft
+
+FT_CAL			=	-L $(LIBFT_DIR) -l $(LIBFT_LIB)
+
+CC				=	gcc
+
+CFLAGS			=	-Wall -Wextra -Werror -O3 -g
+
+LIBS			=	$(MLX_CAL) $(FT_CAL) $(SYS_CAL)
+
+INCS			=	-I $(MLX_DIR) -I $(INC_DIR) -I $(LIBFT_DIR)/$(INC_DIR)
+
+SAN				=	-g3 -fsanitize=address
+
+RM				=	rm -rf
+
+DIR_GUARD		=	mkdir -p $(@D)
+
+$(OBJ)/%.o:	$(SRC)/%.c
+				$(DIR_GUARD)
+				$(CC) $(CFLAGS) $(INCS) -c $< -o $@
+
+$(NAME):		$(OBJS)
+				make all -C $(LIBFT_DIR)
+				make all -C $(MLX_DIR)
+				$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(INCS) -o $(NAME)
+
+all:			$(NAME)
+
+bonus:			$(NAME)
+
+fsan:			$(OBJS)
+				make all -C $(LIBFT_DIR)
+				make all -C $(MLX_DIR)
+				$(CC) $(SAN) $(CFLAGS) $(OBJS) $(LIBS) $(INCS) -o $(NAME)
 
 clean:
-	@rm -rf *.o
-	@echo "$(RED)$(O_DIR)directory was deleted$(RESET)"
-	@echo "$(RED)object files were deleted$(RESET)"
+				$(RM) $(OBJ)
+				make $@ -C $(MLX_DIR)
+				make $@ -C $(LIBFT_DIR)
 
-fclean: clean
-	@rm -f *.a
-	@rm -f $(NAME)
-	@echo "$(RED)$(NAME) was deleted$(RESET)"
+fclean: 		clean
+				$(RM) $(NAME)
+				make $@ -C $(LIBFT_DIR)
 
-re:
-	@$(MAKE) fclean
-	@$(MAKE) all
+re:				fclean all
 
-r: re
-	./fractol
+man:			all
+				./fractol mandelbrot
 
-.PHONY: all clean fclean re r
+run:			all
+				reset
+				./fractol
+
+norm:
+	norminette $(SRC) $(LIBFT_DIR) $(INC_DIR)
+
+.PHONY:			all bonus fsan clean fclean re man run
