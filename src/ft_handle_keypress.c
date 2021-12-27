@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 19:36:26 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/22 03:36:56 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/27 07:18:10 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	ft_handle_keypress(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
 	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		data->win_ptr = NULL;
+		ft_clear_memory(data);
 	}
 	return (0);
 }

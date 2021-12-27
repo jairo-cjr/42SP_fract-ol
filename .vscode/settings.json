@@ -8,6 +8,8 @@
 		"vector": "c",
 		"string_view": "c",
 		"initializer_list": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"fractol.h": "c",
+		"string.h": "c"
 	}
 }

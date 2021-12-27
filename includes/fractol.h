@@ -6,14 +6,13 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:06:21 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/22 10:48:06 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/27 12:51:50 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-// # include "../mlx_linux/mlx.h"
 # include "../libft/includes/libft.h"
 # include <unistd.h>
 # include <stdio.h>
@@ -29,10 +28,9 @@
 
 # define MLX_ERROR 1
 
-# define KEYPRESS 2
-# define KEYPRESSMASK 1
+# define DESTROYNOT 17
 
-# define NMAX 50
+# define NMAX 80
 
 # define MANDELBROT 0
 # define JULIA 1
@@ -60,31 +58,40 @@ typedef struct s_img
 	int			endian;
 }				t_img;
 
+typedef struct s_complex
+{
+	double			re;
+	double			im;
+}					t_complex;
+
 typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	char		*title;
+	int			fractal;
 	t_img		img;
+	t_complex	min;
+	t_complex	max;
+	t_complex	factor;
+	t_complex	c;
+	int			x;
+	int			y;
 }				t_data;
 
-typedef struct s_rectangle
-{
-	int	x;
-	int	y;
-	int	width;
-	int	height;
-	int	color;
-}	t_rectangle;
-
-int		ft_encode_rgb(int r, int g, int b);
-int		ft_handle_keypress(int keysym, t_data *data);
-int		ft_render(t_data *data);
-void	ft_render_rectangle(t_img *img, t_rectangle rect);
-void	ft_render_background(t_img *img, int color);
-void	ft_create_window(t_data *data);
-void	ft_create_image(t_data *data);
-void	ft_img_pixel_put(t_img *img, int x, int y, int color);
-void	ft_init_mlx(t_data *data);
+int			ft_clear_memory(t_data *data);
+void		ft_create_image(t_data *data);
+void		ft_create_window(t_data *data);
+int			ft_encode_rgb(int r, int g, int b);
+int			ft_handle_keypress(int keysym, t_data *data);
+void		ft_img_pixel_put(t_img *img, int x, int y, int color);
+void		ft_init(int argc, char **argv, t_data *data);
+t_complex	ft_init_complex(double re, double im);
+void		ft_init_mlx(t_data *data);
+void		ft_init_pointers(t_data *data);
+void		ft_mandelbrot(t_data *data);
+// void		ft_render_background(t_img *img, int color);
+// void		ft_render_rectangle(t_img *img, t_rectangle rect);
+int			ft_render(t_data *data);
 
 #endif
