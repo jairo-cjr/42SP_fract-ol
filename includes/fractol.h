@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:06:21 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/27 12:51:50 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/27 16:41:55 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ typedef struct s_data
 int			ft_clear_memory(t_data *data);
 void		ft_create_image(t_data *data);
 void		ft_create_window(t_data *data);
-int			ft_encode_rgb(int r, int g, int b);
+int			ft_encode_rgb(double t, int r, int g, int b);
+int			ft_get_color(int iterations);
 int			ft_handle_keypress(int keysym, t_data *data);
 void		ft_img_pixel_put(t_img *img, int x, int y, int color);
 void		ft_init(int argc, char **argv, t_data *data);

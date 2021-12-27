@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:02:34 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/27 12:51:17 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/27 16:37:36 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	ft_render_mandelbrot(t_data *data);
 static void	ft_init_mandelbrot(t_data *data);
-static int	ft_get_color(int iterations);
 
 void	ft_mandelbrot(t_data *data)
 {
@@ -24,8 +23,8 @@ void	ft_mandelbrot(t_data *data)
 
 static void	ft_render_mandelbrot(t_data *data)
 {
-	int	iter;
-	t_complex z;
+	int			iter;
+	t_complex	z;
 
 	while (data->y < H)
 	{
@@ -57,17 +56,4 @@ static void	ft_init_mandelbrot(t_data *data)
 	data->max.im = data->min.im + (data->max.re - data->min.re) * H / W;
 	data->factor.re = (data->max.re - data->min.re) / (W - 1) * 1;
 	data->factor.im = (data->max.im - data->min.im) / (H - 1) * 1;
-}
-
-static int	ft_get_color(int iterations)
-{
-	int	color;
-
-	if (iterations < NMAX)
-		return (ft_encode_rgb(255, 0, 0));
-	else
-	{
-		return (ft_encode_rgb(255, 255, 255));
-		return (color);
-	}
 }

@@ -6,7 +6,7 @@
 #    By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 14:32:11 by jcaetano          #+#    #+#              #
-#    Updated: 2021/12/27 12:08:20 by jcaetano         ###   ########.fr        #
+#    Updated: 2021/12/27 16:40:06 by jcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS			=	main.c \
 					ft_create_image.c \
 					ft_create_window.c \
 					ft_encode_rgb.c \
+					ft_get_color.c \
 					ft_handle_keypress.c \
 					ft_img_pixel_put.c \
 					ft_init.c \
@@ -32,7 +33,7 @@ OBJS			=	$(addprefix $(OBJ)/,$(SRCS:.c=.o))
 
 INC_DIR			=	./includes
 
-SYS_CAL			=	-lmlx -Ilmlx -lXext -lX11
+SYS_CAL			=	-lmlx -Ilmlx -lXext -lX11 -lm -lbsd
 
 LIBFT_DIR		=	./libft
 
