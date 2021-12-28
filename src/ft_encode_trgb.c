@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_encode_rgb.c                                    :+:      :+:    :+:   */
+/*   ft_encode_trgb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-int	ft_encode_rgb(double t, int r, int g, int b)
+int	ft_encode_trgb(double t, int r, int g, int b)
 {
 	return ((int)t << 24 | r << 16 | g << 8 | b);
 }

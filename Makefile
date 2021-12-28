@@ -6,7 +6,7 @@
 #    By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 14:32:11 by jcaetano          #+#    #+#              #
-#    Updated: 2021/12/27 16:40:06 by jcaetano         ###   ########.fr        #
+#    Updated: 2021/12/28 18:32:21 by jcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS			=	main.c \
 					ft_clear_memory.c \
 					ft_create_image.c \
 					ft_create_window.c \
-					ft_encode_rgb.c \
+					ft_encode_trgb.c \
 					ft_get_color.c \
 					ft_handle_keypress.c \
 					ft_img_pixel_put.c \
@@ -26,6 +26,7 @@ SRCS			=	main.c \
 					ft_init_mlx.c \
 					ft_init_pointers.c \
 					ft_mandelbrot.c \
+					ft_julia.c \
 					ft_render.c
 
 OBJ				=	./bin
