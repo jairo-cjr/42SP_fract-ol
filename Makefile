@@ -6,7 +6,7 @@
 #    By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 14:32:11 by jcaetano          #+#    #+#              #
-#    Updated: 2021/12/28 18:32:21 by jcaetano         ###   ########.fr        #
+#    Updated: 2021/12/29 11:40:32 by jcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS			=	main.c \
 					ft_init_pointers.c \
 					ft_mandelbrot.c \
 					ft_julia.c \
-					ft_render.c
+					ft_render.c \
+					ft_set_defaults.c
 
 OBJ				=	./bin
 OBJS			=	$(addprefix $(OBJ)/,$(SRCS:.c=.o))
@@ -83,8 +84,14 @@ fclean: 		clean
 re:				fclean all
 
 m:
+				make
 				reset
 				./fractol mandelbrot
+
+j:
+				make
+				reset
+				./fractol julia
 
 run:			all
 				reset
@@ -97,4 +104,4 @@ val:			all
 norm:
 				norminette $(SRC) $(LIBFT_DIR) $(INC_DIR)
 
-.PHONY:			all bonus fsan clean fclean re m run
+.PHONY:			all bonus fsan clean fclean re m j run

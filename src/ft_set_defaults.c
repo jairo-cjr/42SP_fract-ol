@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_render.c                                        :+:      :+:    :+:   */
+/*   ft_set_defaults.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 19:29:22 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/29 11:38:30 by jcaetano         ###   ########.fr       */
+/*   Created: 2021/12/29 10:11:36 by jcaetano          #+#    #+#             */
+/*   Updated: 2021/12/29 11:42:18 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_render(t_data *data)
+void	ft_set_defaults(t_data *data)
 {
-	if (data->win_ptr == NULL)
-		return (MLX_ERROR);
-	ft_set_defaults(data);
 	if (data->fractal == MANDELBROT)
-		ft_mandelbrot(data);
-	if (data->fractal == JULIA)
-		ft_julia(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_ptr,
-		0, 0);
-	return (0);
+	{
+		data->min = ft_init_complex(-2.0, -1.3);
+		data->max.re = 1.5;
+	}
+	else if (data->fractal == JULIA)
+	{
+		data->min = ft_init_complex(-2.0, -1.5);
+		data->max.re = 2.0;
+	}
+	data->max.im = data->min.im + (data->max.re - data->min.re) * H / W;
+	data->k = ft_init_complex(-0.835, -0.2321);
+	data->factor.re = (data->max.re - data->min.re) / (W - 1);
+	data->factor.im = (data->max.im - data->min.im) / (H - 1);
 }

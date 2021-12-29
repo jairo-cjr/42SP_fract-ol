@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:06:21 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/28 18:38:52 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/29 11:32:31 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <mlx.h>
 
 # define W 800
-# define H 800
+# define H 600
 
 # define MLX_ERROR 1
 
@@ -76,6 +76,7 @@ typedef struct s_data
 	t_complex	max;
 	t_complex	factor;
 	t_complex	c;
+	t_complex	k;
 	int			x;
 	int			y;
 }				t_data;
@@ -94,6 +95,7 @@ void		ft_init_pointers(t_data *data);
 void		ft_mandelbrot(t_data *data);
 void		ft_julia(t_data *data);
 int			ft_render(t_data *data);
+void		ft_set_defaults(t_data *data);
 
 
 #endif

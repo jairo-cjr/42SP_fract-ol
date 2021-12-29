@@ -6,22 +6,13 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:02:34 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/28 18:31:12 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/29 11:38:47 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	ft_render_mandelbrot(t_data *data);
-static void	ft_init_mandelbrot(t_data *data);
-
 void	ft_mandelbrot(t_data *data)
-{
-	ft_init_mandelbrot(data);
-	ft_render_mandelbrot(data);
-}
-
-static void	ft_render_mandelbrot(t_data *data)
 {
 	int			iter;
 	t_complex	z;
@@ -48,13 +39,4 @@ static void	ft_render_mandelbrot(t_data *data)
 		}
 		data->y++;
 	}
-}
-
-static void	ft_init_mandelbrot(t_data *data)
-{
-	data->min = ft_init_complex(-2.0, -2.0);
-	data->max.re = 1.5;
-	data->max.im = data->min.im + (data->max.re - data->min.re) * H / W;
-	data->factor.re = (data->max.re - data->min.re) / (W - 1);
-	data->factor.im = (data->max.im - data->min.im) / (H - 1);
 }

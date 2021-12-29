@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:30 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/27 17:08:32 by jcaetano         ###   ########.fr       */
+/*   Updated: 2021/12/29 11:24:55 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 void	ft_init(int argc, char **argv, t_data *data)
 {
 	if (!ft_strcmp(data->title, "mandelbrot"))
-	{
 		data->fractal = MANDELBROT;
-	}
 	else if (!ft_strcmp(data->title, "julia"))
 	{
-		printf("Fractal de julia\n");
+		data->fractal = JULIA;
 	}
 	else
 	{
