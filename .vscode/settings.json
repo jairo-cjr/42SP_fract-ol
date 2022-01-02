@@ -10,6 +10,7 @@
 		"initializer_list": "c",
 		"mlx.h": "c",
 		"fractol.h": "c",
-		"string.h": "c"
+		"string.h": "c",
+		"libft.h": "c"
 	}
 }

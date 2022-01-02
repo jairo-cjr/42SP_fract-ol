@@ -6,11 +6,25 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:50:40 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/27 11:48:18 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/01 09:53:36 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+/*
+*	[x]	Mandelbrot set
+*	[x]	Julia set
+*	[]	Zoom in e zoom out
+*	[x]	Colorir o fractal
+*	[]	Imprimir mensagem de erro se não haver parâmetros.
+*	[x]	Sair com ESQ
+*
+*	Bônus
+*	[]	Novo fractal
+*	[] Zoom segue a posição do mouse
+*	[] Cores alternam
+*/
 
 int	main(int argc, char **argv)
 {
