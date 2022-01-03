@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:14:53 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/03 16:32:07 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/03 17:22:56 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	ft_zoom(int button, int x, int y, t_data *data)
 	scale.delta_y2 = data->max.im - data->min.im;
 	data->x = 0;
 	data->y = 0;
-	// scale.delta_x2 = 0;
-	// scale.delta_y2 = 0;
 	if (button == SCROLL_UP)
 	{
 		scale.delta_x2 = ((0.95) * scale.delta_x2) - scale.delta_x2;

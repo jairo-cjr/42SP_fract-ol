@@ -6,7 +6,7 @@
 #    By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 14:32:11 by jcaetano          #+#    #+#              #
-#    Updated: 2022/01/03 11:17:22 by jcaetano         ###   ########.fr        #
+#    Updated: 2022/01/03 17:24:04 by jcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,15 +96,8 @@ j:
 				reset
 				./fractol julia
 
-run:			all
-				reset
-				./fractol
-
 val:			all
 				reset
-				valgrind ./fractol --leak-check=full
+				valgrind ./fractol mandelbrot --leak-check=full
 
-norm:
-				norminette $(SRC) $(LIBFT_DIR) $(INC_DIR)
-
-.PHONY:			all bonus fsan clean fclean re m j run
+.PHONY:			all bonus fsan clean fclean re m j
