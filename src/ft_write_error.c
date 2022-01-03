@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_img_pixel_put.c                                 :+:      :+:    :+:   */
+/*   ft_write_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/22 06:29:04 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/03 16:25:30 by jcaetano         ###   ########.fr       */
+/*   Created: 2022/01/03 09:33:26 by jcaetano          #+#    #+#             */
+/*   Updated: 2022/01/03 10:09:59 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_img_pixel_put(t_img *img, int x, int y, int color)
+void	ft_write_error(int erro)
 {
-	char	*pixel;
-
-	pixel = img->addr + (img->size_l * y + (img->bpp / 8) * x);
-	*(int *)pixel = color;
+	if (erro == MISSING_ARG)
+		ft_write_message("./messages/missing_arguments.txt");
+	if (erro == JULIA_WARNING)
+		ft_write_message("./messages/julia_warning.txt");
 }

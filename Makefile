@@ -6,29 +6,32 @@
 #    By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 14:32:11 by jcaetano          #+#    #+#              #
-#    Updated: 2021/12/29 11:40:32 by jcaetano         ###   ########.fr        #
+#    Updated: 2022/01/03 11:17:22 by jcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	fractol
 
 SRC				=	./src
-SRCS			=	main.c \
-					ft_clear_memory.c \
-					ft_create_image.c \
-					ft_create_window.c \
-					ft_encode_trgb.c \
-					ft_get_color.c \
-					ft_handle_keypress.c \
-					ft_img_pixel_put.c \
-					ft_init.c \
-					ft_init_complex.c \
-					ft_init_mlx.c \
-					ft_init_pointers.c \
-					ft_mandelbrot.c \
-					ft_julia.c \
-					ft_render.c \
-					ft_set_defaults.c
+SRCS			=	main.c					\
+					ft_clear_memory.c		\
+					ft_create_image.c		\
+					ft_create_window.c		\
+					ft_encode_trgb.c		\
+					ft_get_color.c			\
+					ft_handle_keypress.c	\
+					ft_img_pixel_put.c		\
+					ft_init.c				\
+					ft_init_complex.c		\
+					ft_init_mlx.c			\
+					ft_init_pointers.c		\
+					ft_mandelbrot.c			\
+					ft_julia.c				\
+					ft_render.c				\
+					ft_set_defaults.c		\
+					ft_write_message.c		\
+					ft_write_error.c		\
+					ft_zoom.c
 
 OBJ				=	./bin
 OBJS			=	$(addprefix $(OBJ)/,$(SRCS:.c=.o))

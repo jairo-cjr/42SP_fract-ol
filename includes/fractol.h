@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:06:21 by jcaetano          #+#    #+#             */
-/*   Updated: 2021/12/29 11:32:31 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/03 16:35:44 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,23 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <fcntl.h>
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <mlx.h>
 
 # define W 800
-# define H 600
+# define H 800
+
+# define MISSING_ARG	0
+# define JULIA_WARNING	1
 
 # define MLX_ERROR 1
 
 # define DESTROYNOT 17
 
-# define NMAX 80
+# define NMAX 200
 
 # define MANDELBROT 0
 # define JULIA 1
@@ -57,6 +61,16 @@ typedef struct s_img
 	int			bpp;
 	int			endian;
 }				t_img;
+
+typedef struct s_scale
+{
+	double	x_ratio;
+	double	y_ratio;
+	double	delta_x;
+	double	delta_y;
+	double	delta_x2;
+	double	delta_y2;
+}			t_scale;
 
 typedef struct s_complex
 {
@@ -96,6 +110,8 @@ void		ft_mandelbrot(t_data *data);
 void		ft_julia(t_data *data);
 int			ft_render(t_data *data);
 void		ft_set_defaults(t_data *data);
-
+void		ft_write_error(int erro);
+void		ft_write_message(const char *message);
+int			ft_zoom(int button, int x, int y, t_data *data);
 
 #endif

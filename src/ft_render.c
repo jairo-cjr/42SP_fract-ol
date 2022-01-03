@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 19:29:22 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/01 21:00:50 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/03 16:23:23 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_render(t_data *data)
 {
 	if (data->win_ptr == NULL)
 		return (MLX_ERROR);
-	ft_set_defaults(data);
 	if (data->fractal == MANDELBROT)
 		ft_mandelbrot(data);
 	if (data->fractal == JULIA)

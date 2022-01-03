@@ -1,0 +1,15 @@
+#                             :::      ::::::::                                #
+#                            :+:      :+:    :+:                               #
+#                          +:+ +:+         +:+                                 #
+#                        +#+  +:+       +#+                                    #
+#                      +#+#+#+#+#+   +#+                                       #
+#                           #+#    #+#                                         #
+#                          ###   ########.fr                                   #
+#                By: jcaetano <jcaetano@student.42sp.org.                      #
+
+#    -----------------------------------------------------------------------   #
+#    SOME ARGUMENTS ARE WRONG OR MISSING                                       #
+#    There are two ways to run fractol.                                        #
+#    ./fractol mandelbrot                                                      #
+#    ./fractol julia [real_value] [imaginary_value]  | ex: -0.835 0.2321       #
+#    -----------------------------------------------------------------------   #
