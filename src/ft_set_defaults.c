@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 10:11:36 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/01 21:01:22 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/03 08:52:06 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	ft_set_defaults(t_data *data)
 	data->factor.re = (data->max.re - data->min.re) / (W - 1);
 	data->factor.im = (data->max.im - data->min.im) / (H - 1);
 	if (!data->k.im || !data->k.re)
-		data->k = ft_init_complex(-0.835, -0.2321);
+		data->k = ft_init_complex(-0.835, 0.2321);
 }
