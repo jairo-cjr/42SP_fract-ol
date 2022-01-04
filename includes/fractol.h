@@ -6,22 +6,19 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:06:21 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/03 16:35:44 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/04 14:07:14 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "../libft/includes/libft.h"
+# include "libft.h"
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
 # include <math.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
 # include <mlx.h>
 
 # define W 800
@@ -30,28 +27,19 @@
 # define MISSING_ARG	0
 # define JULIA_WARNING	1
 
-# define MLX_ERROR 1
-
 # define DESTROYNOT 17
+# define KEYPRES 2
+# define ESC_KEY 65307
+
+# define MLX_ERROR 1
 
 # define NMAX 200
 
 # define MANDELBROT 0
 # define JULIA 1
-# define BURNSHEEP 2
-
-# define ESC 65307
-# define UP_ARROW 65362
-# define DOWN_ARROW 65364
-# define LEFT_ARROW 65361
-# define RIGHT_ARROW 65363
-# define C_KEY 99
 
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
-
-# define ZOOM_IN 1
-# define ZOOM_OUT -1
 
 typedef struct s_img
 {

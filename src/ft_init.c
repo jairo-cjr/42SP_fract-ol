@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:30 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/03 17:13:08 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/04 13:57:19 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	ft_init(int argc, char **argv, t_data *data)
 	else if (!ft_strcmp(data->title, "julia"))
 	{
 		if (argc != 4)
-			ft_write_error(JULIA_WARNING);
-		else
 		{
-			data->k.re = ft_atof(argv[2]);
-			data->k.im = ft_atof(argv[3]);
+			ft_write_error(JULIA_WARNING);
+			data->k = ft_init_complex(0.285, 0.01);
 		}
+		else
+			data->k = ft_init_complex(ft_atof(argv[2]), ft_atof(argv[3]));
 		data->fractal = JULIA;
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 10:11:36 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/03 17:14:27 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/04 13:57:11 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,4 @@ void	ft_set_defaults(t_data *data)
 	data->max.im = data->min.im + (data->max.re - data->min.re) * H / W;
 	data->factor.re = (data->max.re - data->min.re) / (W - 1);
 	data->factor.im = (data->max.im - data->min.im) / (H - 1);
-	if (!data->k.im && !data->k.re)
-		data->k = ft_init_complex(0.285, 0.01);
 }

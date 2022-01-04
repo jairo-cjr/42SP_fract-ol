@@ -6,25 +6,11 @@
 /*   By: jcaetano <jcaetano@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:50:40 by jcaetano          #+#    #+#             */
-/*   Updated: 2022/01/03 17:23:07 by jcaetano         ###   ########.fr       */
+/*   Updated: 2022/01/04 14:00:08 by jcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-/*
-*	[x]	Mandelbrot set
-*	[x]	Julia set
-*	[]	Zoom in e zoom out
-*	[x]	Colorir o fractal
-*	[]	Imprimir mensagem de erro se não haver parâmetros.
-*	[x]	Sair com ESQ
-*
-*	Bônus
-*	[]	Novo fractal
-*	[] Zoom segue a posição do mouse
-*	[] Cores alternam
-*/
 
 int	main(int argc, char **argv)
 {
@@ -33,7 +19,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 	{
 		ft_write_error(MISSING_ARG);
-		exit(1);
+		exit(MLX_ERROR);
 	}
 	else
 	{
@@ -41,8 +27,8 @@ int	main(int argc, char **argv)
 		ft_init_pointers(&data);
 		ft_init(argc, argv, &data);
 	}
-	mlx_hook(data.win_ptr, DESTROYNOT, KeyPressMask, &ft_clear_memory, &data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &ft_handle_keypress, &data);
+	mlx_hook(data.win_ptr, DESTROYNOT, 1L << 0, &ft_clear_memory, &data);
+	mlx_hook(data.win_ptr, KEYPRES, 1L << 0, &ft_handle_keypress, &data);
 	mlx_mouse_hook(data.win_ptr, ft_zoom, &data);
 	mlx_expose_hook(data.win_ptr, &ft_render, &data);
 	mlx_loop(data.mlx_ptr);
